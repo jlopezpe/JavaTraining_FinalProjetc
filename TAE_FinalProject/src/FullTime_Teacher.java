@@ -4,7 +4,7 @@ public class FullTime_Teacher extends Person implements Teacher {
     private double salary;
 
     public double getSalary() {
-        return salary;
+        return calculate_salary();
     }
 
     public void setSalary(double salary) {
@@ -29,7 +29,15 @@ public class FullTime_Teacher extends Person implements Teacher {
         this.experience_years=experience_years;
     }
 
-    public void calculate_salary() {
+    public double calculate_salary() {
+
+        return 0;
+    }
+
+    public double calculate_salary(int experience_years){
+
+        this.setSalary((this.experience_years)*1.1*salary_base);
+        return salary;
 
     }
 }
