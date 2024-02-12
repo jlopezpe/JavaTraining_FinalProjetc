@@ -35,6 +35,10 @@ public class University {
     public void show_professorsInfo(){
 
         List<Teacher> list_teachers=this.getTeachers();
+
+
+        System.out.println("This is the list of the teachers working at the moment in the university");
+        System.out.println("-------------------------------------------------------");
         for (Teacher teacher : list_teachers) {
 
             if(teacher instanceof PartTime_Teacher){
@@ -42,12 +46,15 @@ public class University {
                 System.out.println("ParTime Teacher");
                 System.out.println("Name: "+teacher.getName());
                 System.out.println("Salary: "+((PartTime_Teacher) teacher).getSalary());
+                System.out.println("--------------");
             }
 
             else if (teacher instanceof FullTime_Teacher){
                 System.out.println("FullTime Teacher");
                 System.out.println("Name: "+teacher.getName());
                 System.out.println("Salary: "+((FullTime_Teacher) teacher).getSalary());
+                System.out.println("--------------");
+
 
             }
 

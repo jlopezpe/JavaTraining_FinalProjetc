@@ -1,7 +1,7 @@
 public interface Teacher{
 
-    final double salary_base = 2500000;
+    final float salary_base = 25000;
 
     public String getName();
-    public double calculate_salary();
+    public float calculate_salary();
 }
