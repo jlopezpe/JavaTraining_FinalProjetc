@@ -28,6 +28,7 @@ public class FullTime_Teacher extends Person implements Teacher {
         this.name=name;
         this.experience_years=experience_years;
     }
+
     public void calculate_salary() {
 
     }
