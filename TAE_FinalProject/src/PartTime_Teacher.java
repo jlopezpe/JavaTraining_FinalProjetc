@@ -1,7 +1,7 @@
 public class PartTime_Teacher extends Person implements Teacher {
 
     private int hours_week;
-    private double salary;
+    private float salary;
 
     public int getHours_week() {
         return hours_week;
@@ -11,15 +11,36 @@ public class PartTime_Teacher extends Person implements Teacher {
         this.hours_week = hours_week;
     }
 
-    public double getSalary() {
+    public float getSalary() {
         return salary;
     }
 
-    public void setSalary(double salary) {
+    public void setSalary(float salary) {
         this.salary = salary;
     }
 
-    public void calculate_salary() {
+    public PartTime_Teacher(){
 
     }
+
+    public PartTime_Teacher(String name,int hours_week){
+
+        this.name=name;
+        this.hours_week=hours_week;
+
+    }
+
+    public float calculate_salary() {
+
+        return calculate_salary(this.hours_week);
+
+    }
+    public float calculate_salary(int hours_week) {
+
+        this.setSalary(hours_week*salary_base);
+        return salary;
+
+    }
+
+
 }
