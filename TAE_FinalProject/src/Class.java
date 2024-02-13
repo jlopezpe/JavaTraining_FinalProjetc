@@ -93,6 +93,14 @@ public class Class {
         }
     }
 
+    public void show_classroom_only(){
+
+        System.out.println("Classroom: "+this.getClassroom());
+        System.out.println("---------------");
+
+    }
+
+
 
 }
 

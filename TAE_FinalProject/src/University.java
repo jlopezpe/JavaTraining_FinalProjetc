@@ -66,7 +66,7 @@ public class University {
 
         List<Student> list_students= this.students;
 
-        System.out.println("This is the list of students working at the moment in the university");
+        System.out.println("This is the list of students ");
         System.out.println("-------------------------------------------------------");
         for(Student student: list_students){
 
@@ -112,10 +112,10 @@ public class University {
 
     }
 
-    public void show_classesInfo(List<Class> list_classes){
+    public void show_classesInfo(){
 
         System.out.println("This is the list of the classes available");
-        for(Class classes: list_classes){
+        for(Class classes: this.getClasses()){
             classes.show_classinfo();
         }
 
@@ -151,7 +151,6 @@ public class University {
 
             if(new_class.equals(classes.getName())){
                 classes.add_student(new_student);
-                classes.show_classinfo();
                 break;
                 //llevarlo al menu
             }
@@ -177,6 +176,7 @@ public class University {
                 if(student.getId()==id_student){
                     System.out.println(classes.getName());
                     //llevarlo al menu
+                    break;
                 }
             }
 
@@ -190,6 +190,40 @@ public class University {
 
     public void create_class(){
 
+        //Create a new class and add an existing teacher, existing students and its relevant data
+        System.out.println("Please give the subjet of this class");
+        Scanner input=new Scanner(System.in);
+        String class_name=input.nextLine();
+        System.out.println("In which classroom it will be");
+        System.out.println("These classroom are not available, or maybe the class will be in a different schedule");
+        for(Class classes: this.getClasses()){
+
+            classes.show_classroom_only();
+
+        }
+        String classroom_class=input.nextLine();
+        System.out.println("Students added");
+        System.out.println("------------");
+        this.showinfo_student();
+
+        System.out.println("Which teacher will teach this class?");
+        this.show_teachers();
+
+        String adding_teacher = input.nextLine();
+        for(Teacher teacher: this.getTeachers()){
+            if(teacher.getName().equals(adding_teacher)){
+
+                Class new_class=new Class(class_name,classroom_class,teacher,this.getStudents());
+
+                this.add_newEntity(new_class);
+                System.out.println("New class created");
+            }
+        }
+    }
+    public void show_teachers(){
+        for(Teacher teacher: this.getTeachers()){
+            System.out.println(teacher.getName());
+        }
     }
 
     public void add_newEntity(Teacher teacher){
