@@ -82,7 +82,7 @@ public class University {
 
             System.out.println(classes.getName());
         }
-        System.out.println("Please, write the class you are interested in");
+        System.out.println("Write the class you are interested in");
         Scanner input=new Scanner(System.in);
         String name_class= input.next();
 
@@ -96,12 +96,16 @@ public class University {
 
                 classes.show_classinfo();
 
+                break;
+
                 //llevarlo al menu otra vez
             }
 
             else {
-                System.out.println("Please, write a correct name");
-                this.show_classes_menu(this.getClasses());
+                if(list_classes.indexOf(classes)==list_classes.size()-1){
+                    System.out.println("Please write a correct name class");
+                    this.show_classes_menu(list_classes);
+                }
             }
 
         }
@@ -123,23 +127,42 @@ public class University {
         System.out.println("Please, give us the student information");
         System.out.println("Please, write his name");
         Scanner input=new Scanner(System.in);
-        String name_student=input.next();
+        String name_student=input.nextLine();
         System.out.println("Please, write his age");
         int age_student=input.nextInt();
         int id=this.getStudents().size()-1;
         Student new_student=new Student(id,age_student,name_student);
         this.add_newEntity(new_student);
+        this.add_studentTo_class(new_student);
 
-        System.out.println("Please, write in which class the student will be");
+
+    }
+
+    public void add_studentTo_class(Student new_student){
+        Scanner input=new Scanner(System.in);
+        System.out.println("Write in which class the student will be");
         System.out.println("-------------------------------------------------");
         for(Class classes: this.getClasses()){
 
             System.out.println(classes.getName());
-            
         }
+        String new_class=input.next();
 
+        for(Class classes: this.getClasses()){
 
+            if(new_class.equals(classes.getName())){
+                classes.add_student(new_student);
+                break;
+                //llevarlo al menu
+            }
+            else{
+                if(this.getClasses().indexOf(classes)==this.getClasses().size()-1){
+                    System.out.println("Please write correctly");
+                    this.add_studentTo_class(new_student);
+                }
+            }
 
+        }
     }
 
     public void create_class(){

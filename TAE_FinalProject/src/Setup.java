@@ -95,11 +95,11 @@ public class Setup {
 
 
 
-        Class cience=new Class("cience","202",university.getTeachers().get(2));
-        cience.getStudents().add(university.getStudents().get(1));
-        cience.getStudents().add(university.getStudents().get(4));
-        cience.getStudents().add(university.getStudents().get(6));
-        university.add_newEntity(cience);
+        Class science=new Class("science","202",university.getTeachers().get(2));
+        science.getStudents().add(university.getStudents().get(1));
+        science.getStudents().add(university.getStudents().get(4));
+        science.getStudents().add(university.getStudents().get(6));
+        university.add_newEntity(science);
 
 
 

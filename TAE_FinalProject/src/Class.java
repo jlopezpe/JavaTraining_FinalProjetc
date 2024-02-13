@@ -75,6 +75,11 @@ public class Class {
 
     }
 
+    public void add_student(Student student){
+
+        this.getStudents().add(student);
+    }
+
 
 }
 
