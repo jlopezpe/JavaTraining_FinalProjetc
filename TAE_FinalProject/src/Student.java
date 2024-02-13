@@ -25,7 +25,7 @@ public class Student extends Person {
     public Student(int id,int age,String name){
         this.age=age;
         this.id=id;
-        this.name=name;
+        this.setName(name);
     }
 
     public void show_studeninfo(){
