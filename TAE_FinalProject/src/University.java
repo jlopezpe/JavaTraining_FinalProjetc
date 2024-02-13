@@ -130,11 +130,10 @@ public class University {
         String name_student=input.nextLine();
         System.out.println("Please, write his age");
         int age_student=input.nextInt();
-        int id=this.getStudents().size()-1;
+        int id=this.getStudents().size();
         Student new_student=new Student(id,age_student,name_student);
         this.add_newEntity(new_student);
         this.add_studentTo_class(new_student);
-
 
     }
 
@@ -152,6 +151,7 @@ public class University {
 
             if(new_class.equals(classes.getName())){
                 classes.add_student(new_student);
+                classes.show_classinfo();
                 break;
                 //llevarlo al menu
             }
