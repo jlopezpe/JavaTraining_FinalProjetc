@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Class {
 
@@ -78,6 +79,18 @@ public class Class {
     public void add_student(Student student){
 
         this.getStudents().add(student);
+    }
+
+    public void search_student(){
+        System.out.println("Write the student id");
+        Scanner input=new Scanner(System.in);
+        int id_student=input.nextInt();
+        for(Student student: this.getStudents()){
+
+            if(student.getId()==id_student){
+                System.out.println(this.getName());
+            }
+        }
     }
 
 

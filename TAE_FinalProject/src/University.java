@@ -165,6 +165,29 @@ public class University {
         }
     }
 
+    public void search_Studentclass(){
+        //List all the classes in which a given student is included (hint: search by id)
+        System.out.println("Please write a correct student id:");
+        Scanner input=new Scanner(System.in);
+        int id_student=input.nextInt();
+        for(Class classes: this.getClasses()){
+
+            for(Student student: classes.getStudents()){
+
+                if(student.getId()==id_student){
+                    System.out.println(classes.getName());
+                    //llevarlo al menu
+                }
+            }
+
+            if(this.getClasses().indexOf(classes)==this.getClasses().size()-1){
+                System.out.println("Not id found");
+                this.search_Studentclass();
+
+            }
+        }
+    }
+
     public void create_class(){
 
     }
