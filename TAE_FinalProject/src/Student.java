@@ -30,8 +30,8 @@ public class Student extends Person {
 
     public void show_studeninfo(){
 
-        System.out.println(this.getName());
-        System.out.println(this.getAge());
-        System.out.println(this.getId());
+        System.out.println("Name: "+this.getName());
+        System.out.println("Age: "+this.getAge());
+        System.out.println("ID: "+this.getId());
     }
 }
