@@ -72,14 +72,14 @@ public class Setup {
 
     public static void classes_creation(University university){
 
-        Class history=new Class("History","101",university.getTeachers().get(0));
+        Class history=new Class("history","101",university.getTeachers().get(0));
         history.getStudents().add(university.getStudents().get(0));
         history.getStudents().add(university.getStudents().get(4));
         history.getStudents().add(university.getStudents().get(2));
         university.add_newEntity(history);
 
 
-        Class maths=new Class("Maths","205",university.getTeachers().get(3));
+        Class maths=new Class("maths","205",university.getTeachers().get(3));
         maths.getStudents().add(university.getStudents().get(1));
         maths.getStudents().add(university.getStudents().get(5));
         maths.getStudents().add(university.getStudents().get(3));
@@ -87,7 +87,7 @@ public class Setup {
 
 
 
-        Class geography=new Class("Geography","103",university.getTeachers().get(1));
+        Class geography=new Class("geography","103",university.getTeachers().get(1));
         geography.getStudents().add(university.getStudents().get(0));
         geography.getStudents().add(university.getStudents().get(2));
         geography.getStudents().add(university.getStudents().get(6));
@@ -95,7 +95,7 @@ public class Setup {
 
 
 
-        Class cience=new Class("Cience","202",university.getTeachers().get(2));
+        Class cience=new Class("cience","202",university.getTeachers().get(2));
         cience.getStudents().add(university.getStudents().get(1));
         cience.getStudents().add(university.getStudents().get(4));
         cience.getStudents().add(university.getStudents().get(6));

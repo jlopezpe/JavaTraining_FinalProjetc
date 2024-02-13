@@ -86,13 +86,22 @@ public class University {
         Scanner input=new Scanner(System.in);
         String name_class= input.next();
 
-        for (Class classes: list_classes){
 
-            if(classes.getName().equals(name_class)){
+
+        for (Class classes : list_classes) {
+
+            if (classes.getName().equals(name_class)) {
 
                 System.out.println("Here is the information of your interest");
 
                 classes.show_classinfo();
+
+                //llevarlo al menu otra vez
+            }
+
+            else {
+                System.out.println("Please, write a correct name");
+                this.show_classes_menu(this.getClasses());
             }
 
         }
@@ -109,6 +118,27 @@ public class University {
     }
 
     public void create_student(){
+
+        //Create a new student and add it to an existing class
+        System.out.println("Please, give us the student information");
+        System.out.println("Please, write his name");
+        Scanner input=new Scanner(System.in);
+        String name_student=input.next();
+        System.out.println("Please, write his age");
+        int age_student=input.nextInt();
+        int id=this.getStudents().size()-1;
+        Student new_student=new Student(id,age_student,name_student);
+        this.add_newEntity(new_student);
+
+        System.out.println("Please, write in which class the student will be");
+        System.out.println("-------------------------------------------------");
+        for(Class classes: this.getClasses()){
+
+            System.out.println(classes.getName());
+            
+        }
+
+
 
     }
 
