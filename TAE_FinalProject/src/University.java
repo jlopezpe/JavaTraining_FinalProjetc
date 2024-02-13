@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class University {
 
@@ -74,7 +75,27 @@ public class University {
         }
 
     }
-    public void show_classes(){
+    public void show_classes_menu(List<Class> list_classes){
+
+        System.out.println("This is the list of the classes available");
+        for(Class classes: list_classes){
+
+            System.out.println(classes.getName());
+        }
+        System.out.println("Please, write the class you are interested in");
+        Scanner input=new Scanner(System.in);
+        String name_class= input.next();
+
+        for (Class classes: list_classes){
+
+            if(classes.getName().equals(name_class)){
+
+                System.out.println("Here is the information of your interest");
+
+                classes.show_classinfo();
+            }
+
+        }
 
     }
 
@@ -82,7 +103,7 @@ public class University {
 
         System.out.println("This is the list of the classes available");
         for(Class classes: list_classes){
-            classes.show_clssinfo();
+            classes.show_classinfo();
         }
 
     }

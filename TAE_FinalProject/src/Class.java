@@ -61,7 +61,7 @@ public class Class {
     }
 
 
-    public void show_clssinfo(){
+    public void show_classinfo(){
 
         System.out.println("Name: "+this.getName());
         System.out.println("Classroom: "+this.getClassroom());
@@ -72,8 +72,6 @@ public class Class {
             System.out.println("Name: "+student.getName()+" "+ " Student_ID: "+student.getId());
         }
         System.out.println("---------------");
-
-
 
     }
 
