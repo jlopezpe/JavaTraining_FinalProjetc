@@ -42,4 +42,8 @@ public class FullTime_Teacher extends Person implements Teacher {
         return salary;
 
     }
+
+    public static void new_class(University university){
+
+    }
 }

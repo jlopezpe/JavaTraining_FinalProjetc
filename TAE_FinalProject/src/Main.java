@@ -8,7 +8,8 @@ public class Main {
         //university.show_classesInfo(university.getClasses());
        //university.show_classes_menu(university.getClasses());
         //university.create_student();
-        university.search_Studentclass();
+        //university.search_Studentclass();
+        university.create_class();
 
     }
 
