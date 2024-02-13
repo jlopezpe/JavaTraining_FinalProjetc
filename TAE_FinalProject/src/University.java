@@ -66,7 +66,7 @@ public class University {
 
         List<Student> list_students= this.students;
 
-        System.out.println("This is the list of students working at the moment in the university");
+        System.out.println("This is the list of students ");
         System.out.println("-------------------------------------------------------");
         for(Student student: list_students){
 
@@ -151,7 +151,6 @@ public class University {
 
             if(new_class.equals(classes.getName())){
                 classes.add_student(new_student);
-                classes.show_classinfo();
                 break;
                 //llevarlo al menu
             }
@@ -177,6 +176,7 @@ public class University {
                 if(student.getId()==id_student){
                     System.out.println(classes.getName());
                     //llevarlo al menu
+                    break;
                 }
             }
 
@@ -202,14 +202,13 @@ public class University {
 
         }
         String classroom_class=input.nextLine();
-        System.out.println("This class will have these students:");
+        System.out.println("Students added");
         System.out.println("------------");
         this.showinfo_student();
 
         System.out.println("Which teacher will teach this class?");
-        for(Teacher teacher: this.getTeachers()){
-            this.show_teachers();
-        }
+        this.show_teachers();
+
         String adding_teacher = input.nextLine();
         for(Teacher teacher: this.getTeachers()){
             if(teacher.getName().equals(adding_teacher)){
@@ -217,12 +216,13 @@ public class University {
                 Class new_class=new Class(class_name,classroom_class,teacher,this.getStudents());
 
                 this.add_newEntity(new_class);
+                System.out.println("New class created");
             }
         }
     }
     public void show_teachers(){
         for(Teacher teacher: this.getTeachers()){
-            teacher.getName();
+            System.out.println(teacher.getName());
         }
     }
 

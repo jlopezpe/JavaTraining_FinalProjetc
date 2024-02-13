@@ -65,9 +65,6 @@ public class Setup {
         Student studen7= new Student(6,20,"laura bedoya");
         university.add_newEntity(studen7);
 
-
-
-
     }
 
     public static void classes_creation(University university){
