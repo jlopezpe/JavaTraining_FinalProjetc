@@ -9,8 +9,10 @@ public class Setup {
 
     public static void initialize(University university){
 
+
         teachers_creation(university);
         students_creation(university);
+        classes_creation(university);
     }
 
     public static void teachers_creation(University university){
@@ -65,6 +67,14 @@ public class Setup {
 
 
 
+
+    }
+
+    public static void classes_creation(University university){
+
+        Class history=new Class("History","101",university.getTeachers().get(0));
+        history.getStudents().add(university.getStudents().get(0));
+        university.add_newEntity(history);
 
     }
 }

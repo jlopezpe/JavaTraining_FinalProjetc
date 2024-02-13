@@ -70,9 +70,7 @@ public class University {
         for(Student student: list_students){
 
             System.out.println("Name: "+student.getName());
-            System.out.println("--------------");
             System.out.println("Age: "+student.getAge());
-            System.out.println("--------------");
             System.out.println("ID : "+student.getId());
             System.out.println("--------------");
         }
