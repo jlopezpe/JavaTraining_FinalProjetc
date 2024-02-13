@@ -5,6 +5,7 @@ public class Main {
         Setup.initialize(university);
         university.show_professorsInfo();
         university.showinfo_student();
+        university.show_classesInfo(university.getClasses());
 
     }
 

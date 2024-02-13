@@ -69,14 +69,21 @@ public class University {
         System.out.println("-------------------------------------------------------");
         for(Student student: list_students){
 
-            System.out.println("Name: "+student.getName());
-            System.out.println("Age: "+student.getAge());
-            System.out.println("ID : "+student.getId());
+            student.show_studeninfo();
             System.out.println("--------------");
         }
 
     }
     public void show_classes(){
+
+    }
+
+    public void show_classesInfo(List<Class> list_classes){
+
+        System.out.println("This is the list of the classes available");
+        for(Class classes: list_classes){
+            classes.show_clssinfo();
+        }
 
     }
 
