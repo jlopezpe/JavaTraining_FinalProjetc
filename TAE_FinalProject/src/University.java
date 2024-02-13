@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class University {
 
@@ -74,7 +75,40 @@ public class University {
         }
 
     }
-    public void show_classes(){
+    public void show_classes_menu(List<Class> list_classes){
+
+        System.out.println("This is the list of the classes available");
+        for(Class classes: list_classes){
+
+            System.out.println(classes.getName());
+        }
+        System.out.println("Write the class you are interested in");
+        Scanner input=new Scanner(System.in);
+        String name_class= input.next();
+
+
+
+        for (Class classes : list_classes) {
+
+            if (classes.getName().equals(name_class)) {
+
+                System.out.println("Here is the information of your interest");
+
+                classes.show_classinfo();
+
+                break;
+
+                //llevarlo al menu otra vez
+            }
+
+            else {
+                if(list_classes.indexOf(classes)==list_classes.size()-1){
+                    System.out.println("Please write a correct name class");
+                    this.show_classes_menu(list_classes);
+                }
+            }
+
+        }
 
     }
 
@@ -82,13 +116,76 @@ public class University {
 
         System.out.println("This is the list of the classes available");
         for(Class classes: list_classes){
-            classes.show_clssinfo();
+            classes.show_classinfo();
         }
 
     }
 
     public void create_student(){
 
+        //Create a new student and add it to an existing class
+        System.out.println("Please, give us the student information");
+        System.out.println("Please, write his name");
+        Scanner input=new Scanner(System.in);
+        String name_student=input.nextLine();
+        System.out.println("Please, write his age");
+        int age_student=input.nextInt();
+        int id=this.getStudents().size();
+        Student new_student=new Student(id,age_student,name_student);
+        this.add_newEntity(new_student);
+        this.add_studentTo_class(new_student);
+
+    }
+
+    public void add_studentTo_class(Student new_student){
+        Scanner input=new Scanner(System.in);
+        System.out.println("Write in which class the student will be");
+        System.out.println("-------------------------------------------------");
+        for(Class classes: this.getClasses()){
+
+            System.out.println(classes.getName());
+        }
+        String new_class=input.next();
+
+        for(Class classes: this.getClasses()){
+
+            if(new_class.equals(classes.getName())){
+                classes.add_student(new_student);
+                classes.show_classinfo();
+                break;
+                //llevarlo al menu
+            }
+            else{
+                if(this.getClasses().indexOf(classes)==this.getClasses().size()-1){
+                    System.out.println("Please write correctly");
+                    this.add_studentTo_class(new_student);
+                }
+            }
+
+        }
+    }
+
+    public void search_Studentclass(){
+        //List all the classes in which a given student is included (hint: search by id)
+        System.out.println("Please write a correct student id:");
+        Scanner input=new Scanner(System.in);
+        int id_student=input.nextInt();
+        for(Class classes: this.getClasses()){
+
+            for(Student student: classes.getStudents()){
+
+                if(student.getId()==id_student){
+                    System.out.println(classes.getName());
+                    //llevarlo al menu
+                }
+            }
+
+            if(this.getClasses().indexOf(classes)==this.getClasses().size()-1){
+                System.out.println("Not id found");
+                this.search_Studentclass();
+
+            }
+        }
     }
 
     public void create_class(){

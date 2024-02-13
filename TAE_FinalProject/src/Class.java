@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Class {
 
@@ -61,7 +62,7 @@ public class Class {
     }
 
 
-    public void show_clssinfo(){
+    public void show_classinfo(){
 
         System.out.println("Name: "+this.getName());
         System.out.println("Classroom: "+this.getClassroom());
@@ -69,12 +70,27 @@ public class Class {
         System.out.println("List of students:");
         for(Student student: this.getStudents()){
             System.out.println("________________");
-            System.out.println("Name: "+student.getName()+" "+ " Student_ID: "+student.getId());
+            System.out.println("Name: "+student.getName()+" || "+ " Student_ID: "+student.getId());
         }
         System.out.println("---------------");
 
+    }
 
+    public void add_student(Student student){
 
+        this.getStudents().add(student);
+    }
+
+    public void search_student(){
+        System.out.println("Write the student id");
+        Scanner input=new Scanner(System.in);
+        int id_student=input.nextInt();
+        for(Student student: this.getStudents()){
+
+            if(student.getId()==id_student){
+                System.out.println(this.getName());
+            }
+        }
     }
 
 
