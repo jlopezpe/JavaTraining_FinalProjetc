@@ -59,7 +59,23 @@ public class University {
             }
 
         }
+    }
 
+    public void showinfo_student(){
+
+        List<Student> list_students= this.students;
+
+        System.out.println("This is the list of students working at the moment in the university");
+        System.out.println("-------------------------------------------------------");
+        for(Student student: list_students){
+
+            System.out.println("Name: "+student.getName());
+            System.out.println("--------------");
+            System.out.println("Age: "+student.getAge());
+            System.out.println("--------------");
+            System.out.println("ID : "+student.getId());
+            System.out.println("--------------");
+        }
 
     }
     public void show_classes(){

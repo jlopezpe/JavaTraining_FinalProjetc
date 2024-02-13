@@ -38,7 +38,7 @@ public class FullTime_Teacher extends Person implements Teacher {
 
     public float calculate_salary(int experience_years){
 
-        this.setSalary(round((this.experience_years)*1.1*salary_base));
+        this.setSalary(round(experience_years*1.1*salary_base));
         return salary;
 
     }
