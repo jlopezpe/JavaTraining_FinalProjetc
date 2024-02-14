@@ -25,10 +25,10 @@ public class Student extends Person {
     public Student(int id,int age,String name){
         this.age=age;
         this.id=id;
-        this.name=name;
+        this.setName(name);
     }
 
-    public void show_studeninfo(){
+    public void show_studentinfo(){
 
         System.out.println("Name: "+this.getName());
         System.out.println("Age: "+this.getAge());

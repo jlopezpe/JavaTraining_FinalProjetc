@@ -13,7 +13,7 @@ public class Menu {
     }
 
     public static void menuStep(University university) {
-        System.out.println("What do you want to do?");
+        //System.out.println("What do you want to do?");
         System.out.println("#######################");
         System.out.println("Type 1: To Show the teachers information");
         System.out.println("Type 2: To Show information about a specific class");
@@ -42,6 +42,8 @@ public class Menu {
 
                 case 5: university.search_Studentclass();
                         menuStep(university);
+
+                case 6: System.exit(0);
 
 
                 default:System.out.println("Type a correct option");

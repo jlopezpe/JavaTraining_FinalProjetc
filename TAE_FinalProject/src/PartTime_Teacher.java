@@ -25,7 +25,7 @@ public class PartTime_Teacher extends Person implements Teacher {
 
     public PartTime_Teacher(String name,int hours_week){
 
-        this.name=name;
+        this.setName(name);
         this.hours_week=hours_week;
 
     }

@@ -70,7 +70,7 @@ public class University {
         System.out.println("-------------------------------------------------------");
         for(Student student: list_students){
 
-            student.show_studeninfo();
+            student.show_studentinfo();
             System.out.println("--------------");
         }
 
@@ -166,25 +166,26 @@ public class University {
 
     public void search_Studentclass(){
         //List all the classes in which a given student is included (hint: search by id)
-        System.out.println("Please write a correct student id:");
+        this.showinfo_student();
+        System.out.println("Please write a correct student id and know in which classes he is");
         Scanner input=new Scanner(System.in);
         int id_student=input.nextInt();
+        boolean found=false;
         for(Class classes: this.getClasses()){
 
             for(Student student: classes.getStudents()){
 
                 if(student.getId()==id_student){
                     System.out.println(classes.getName());
+                    found=true;
                     //llevarlo al menu
-                    break;
                 }
-            }
-
-            if(this.getClasses().indexOf(classes)==this.getClasses().size()-1){
-                System.out.println("Not id found");
-                this.search_Studentclass();
 
             }
+        }
+        if(!found){
+            System.out.println("Incorrect ID,try again");
+            this.search_Studentclass();
         }
     }
 
@@ -202,23 +203,59 @@ public class University {
 
         }
         String classroom_class=input.nextLine();
-        System.out.println("Students added");
-        System.out.println("------------");
-        this.showinfo_student();
-
         System.out.println("Which teacher will teach this class?");
         this.show_teachers();
-
+        boolean teacher_condition=false;
         String adding_teacher = input.nextLine();
         for(Teacher teacher: this.getTeachers()){
             if(teacher.getName().equals(adding_teacher)){
-
-                Class new_class=new Class(class_name,classroom_class,teacher,this.getStudents());
+                System.out.println("Which student will be in this new class?");
+                System.out.println("Please write his ID, choose one by one");
+                System.out.println("When you finish to add new students, type -1");
+                Class new_class=new Class(class_name,classroom_class,teacher,this.choose_student());
 
                 this.add_newEntity(new_class);
                 System.out.println("New class created");
+                teacher_condition=true;
             }
         }
+        if(!teacher_condition){
+            System.out.println("Incorrect teacher, please try again");
+        }
+    }
+
+    public List<Student> choose_student(){
+
+        this.showinfo_student();
+        boolean condition=true;
+        //boolean student_condition=false;
+        List<Student> new_studentList=new ArrayList<>();
+        while(condition==true){
+            boolean student_condition=false;
+            Scanner input=new Scanner(System.in);
+            int id_newStudent=input.nextInt();
+            if(id_newStudent==-1){
+                condition=false;
+            }
+            else{
+                for(Student new_student: this.getStudents()){
+
+                    if(id_newStudent==new_student.getId()){
+                        new_studentList.add(new_student);
+                        System.out.println("Student added");
+                        student_condition=true;
+                        break;
+                    }
+                }
+                if (!student_condition){
+                    System.out.println("Incorrect id, please try again");
+
+
+                }
+            }
+        }
+
+        return new_studentList;
     }
     public void show_teachers(){
         for(Teacher teacher: this.getTeachers()){

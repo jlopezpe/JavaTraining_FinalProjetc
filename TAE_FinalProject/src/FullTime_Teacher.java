@@ -27,7 +27,7 @@ public class FullTime_Teacher extends Person implements Teacher {
 
     public FullTime_Teacher(String name,int experience_years){
 
-        this.name=name;
+        this.setName(name);
         this.experience_years=experience_years;
     }
 
@@ -43,7 +43,4 @@ public class FullTime_Teacher extends Person implements Teacher {
 
     }
 
-    public static void new_class(University university){
-
-    }
 }
