@@ -6,7 +6,7 @@ public class Class {
 
     public String name;
     private String classroom;
-    public Teacher teacher;
+    private Teacher teacher;
     List<Student> students= new ArrayList<>();
 
     public Class(){

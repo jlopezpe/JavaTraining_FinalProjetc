@@ -28,7 +28,7 @@ public class Student extends Person {
         this.setName(name);
     }
 
-    public void show_studeninfo(){
+    public void show_studentinfo(){
 
         System.out.println("Name: "+this.getName());
         System.out.println("Age: "+this.getAge());

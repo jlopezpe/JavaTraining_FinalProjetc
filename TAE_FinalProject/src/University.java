@@ -70,7 +70,7 @@ public class University {
         System.out.println("-------------------------------------------------------");
         for(Student student: list_students){
 
-            student.show_studeninfo();
+            student.show_studentinfo();
             System.out.println("--------------");
         }
 
