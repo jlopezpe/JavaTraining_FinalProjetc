@@ -1,7 +1,9 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
+//THIS CLASS HAVE ALL THE MAIN FUNCTIONALITIES ON THE MENU
 public class University {
 
     private List<Teacher> teachers=new ArrayList<>();
@@ -33,6 +35,7 @@ public class University {
         this.classes = classes;
     }
 
+    //FUNTIONALITY 1
     public void show_professorsInfo(){
 
         List<Teacher> list_teachers=this.getTeachers();
@@ -62,6 +65,7 @@ public class University {
         }
     }
 
+    //Just a current used method in the main functionalities
     public void showinfo_student(){
 
         List<Student> list_students= this.students;
@@ -75,6 +79,8 @@ public class University {
         }
 
     }
+
+    //FUNCTIONALITY 2
     public void show_classes_menu(List<Class> list_classes){
 
         System.out.println("This is the list of the classes available");
@@ -97,8 +103,6 @@ public class University {
                 classes.show_classinfo();
 
                 break;
-
-                //llevarlo al menu otra vez
             }
 
             else {
@@ -112,6 +116,7 @@ public class University {
 
     }
 
+    //Just a current used method in the main functionalities
     public void show_classesInfo(){
 
         System.out.println("This is the list of the classes available");
@@ -121,9 +126,9 @@ public class University {
 
     }
 
+    //FUNCTIONALITY 3
     public void create_student(){
 
-        //Create a new student and add it to an existing class
         System.out.println("Please, give us the student information");
         System.out.println("Please, write his name");
         Scanner input=new Scanner(System.in);
@@ -133,17 +138,19 @@ public class University {
         int id=this.getStudents().size();
         Student new_student=new Student(id,age_student,name_student);
         this.add_newEntity(new_student);
+        //Use this other method for assign a class to the new student
         this.add_studentTo_class(new_student);
 
     }
 
+    //method for assign a class to a new student
     public void add_studentTo_class(Student new_student){
         Scanner input=new Scanner(System.in);
         System.out.println("Write in which class the student will be");
         System.out.println("-------------------------------------------------");
         for(Class classes: this.getClasses()){
 
-            System.out.println(classes.getName());
+            classes.show_name_only();
         }
         String new_class=input.next();
 
@@ -151,8 +158,9 @@ public class University {
 
             if(new_class.equals(classes.getName())){
                 classes.add_student(new_student);
+                System.out.println("Student created");
                 break;
-                //llevarlo al menu
+                //take it to the menu, is possible use Menu function
             }
             else{
                 if(this.getClasses().indexOf(classes)==this.getClasses().size()-1){
@@ -164,31 +172,37 @@ public class University {
         }
     }
 
+    //FUNCTIONALIY 5
     public void search_Studentclass(){
-        //List all the classes in which a given student is included (hint: search by id)
         this.showinfo_student();
-        System.out.println("Please write a correct student id and know in which classes he is");
-        Scanner input=new Scanner(System.in);
-        int id_student=input.nextInt();
-        boolean found=false;
-        for(Class classes: this.getClasses()){
+        try{
+            System.out.println("Please write a correct student id and know in which classes he is");
+            Scanner input=new Scanner(System.in);
+            int id_student=input.nextInt();
+            boolean found=false;
+            for(Class classes: this.getClasses()){
 
-            for(Student student: classes.getStudents()){
+                for(Student student: classes.getStudents()){
 
-                if(student.getId()==id_student){
-                    System.out.println(classes.getName());
-                    found=true;
-                    //llevarlo al menu
+                    if(student.getId()==id_student){
+                        System.out.println(classes.getName());
+                        found=true;
+                    }
+
                 }
-
+            }
+            if(!found){
+                System.out.println("Incorrect ID,try again");
+                this.search_Studentclass();
             }
         }
-        if(!found){
+        catch (InputMismatchException e){
             System.out.println("Incorrect ID,try again");
             this.search_Studentclass();
         }
     }
 
+    //FUNCIONALITY 4
     public void create_class(){
 
         //Create a new class and add an existing teacher, existing students and its relevant data
@@ -212,6 +226,7 @@ public class University {
                 System.out.println("Which student will be in this new class?");
                 System.out.println("Please write his ID, choose one by one");
                 System.out.println("When you finish to add new students, type -1");
+                //USING THE CHOOSE_STUDENT METHOD TO ADD STUDENTS TO THE NEW CLASS
                 Class new_class=new Class(class_name,classroom_class,teacher,this.choose_student());
 
                 this.add_newEntity(new_class);
@@ -224,6 +239,7 @@ public class University {
         }
     }
 
+    //Funtion to choose who will be in a new class
     public List<Student> choose_student(){
 
         this.showinfo_student();

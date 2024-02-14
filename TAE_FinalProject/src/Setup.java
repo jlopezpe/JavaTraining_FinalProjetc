@@ -17,27 +17,26 @@ public class Setup {
 
     public static void teachers_creation(University university){
 
-        //usar metodo de crear clases aquí
 
         PartTime_Teacher part_time_teacher1= new PartTime_Teacher("juan gonzalez",4);
         part_time_teacher1.calculate_salary();
         university.add_newEntity(part_time_teacher1);
-        //añadirlo a una clase
+
 
         PartTime_Teacher part_time_teacher2= new PartTime_Teacher("maria lopez",8);
         part_time_teacher2.calculate_salary();
         university.add_newEntity(part_time_teacher2);
-        //añadirlo a una clase
+
 
         FullTime_Teacher full_time_teacher1= new FullTime_Teacher("daniela garcia",10);
         full_time_teacher1.calculate_salary();
         university.add_newEntity(full_time_teacher1);
-        //añadirlo a una clase
+
 
         FullTime_Teacher full_time_teacher2= new FullTime_Teacher("alejandra jimenez",5);
         full_time_teacher2.calculate_salary();
         university.add_newEntity(full_time_teacher2);
-        //añadirlo a una clase
+
 
     }
 
@@ -45,7 +44,7 @@ public class Setup {
 
         Student studen1= new Student(0,20,"santiago jaramillo");
         university.add_newEntity(studen1);
-        //añadirlo a la lista de una clase también
+
 
         Student studen2= new Student(1,23,"maria Vidal");
         university.add_newEntity(studen2);

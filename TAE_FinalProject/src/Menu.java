@@ -7,14 +7,15 @@ public class Menu {
         System.out.println("||Welcome to Globant University||");
         System.out.println("------------------------");
         University university=new University();
+        //Creating and adding entities to the new university
         Setup.initialize(university);
+        //initiate the menu
         Menu.menuStep(university);
 
     }
 
     public static void menuStep(University university) {
-        //System.out.println("What do you want to do?");
-        System.out.println("#######################");
+        System.out.println("######################################");
         System.out.println("Type 1: To Show the teachers information");
         System.out.println("Type 2: To Show information about a specific class");
         System.out.println("Type 3: To Create a new student");

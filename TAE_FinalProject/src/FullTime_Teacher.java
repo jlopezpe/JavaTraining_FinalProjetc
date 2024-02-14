@@ -36,6 +36,7 @@ public class FullTime_Teacher extends Person implements Teacher {
         return calculate_salary(this.experience_years);
     }
 
+    //Overwriting method. first the salary is calculated, then it returns it.
     public float calculate_salary(int experience_years){
 
         this.setSalary(round(experience_years*1.1*salary_base));

@@ -81,21 +81,16 @@ public class Class {
         this.getStudents().add(student);
     }
 
-    public void search_student(){
-        System.out.println("Write the student id");
-        Scanner input=new Scanner(System.in);
-        int id_student=input.nextInt();
-        for(Student student: this.getStudents()){
-
-            if(student.getId()==id_student){
-                System.out.println(this.getName());
-            }
-        }
-    }
 
     public void show_classroom_only(){
 
         System.out.println("Classroom: "+this.getClassroom());
+        System.out.println("---------------");
+
+    }
+    public void show_name_only(){
+
+        System.out.println(this.getName());
         System.out.println("---------------");
 
     }
