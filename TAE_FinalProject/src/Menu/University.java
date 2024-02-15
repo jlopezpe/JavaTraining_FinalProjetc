@@ -55,14 +55,14 @@ public class University {
 
             if(teacher instanceof PartTime_Teacher){
 
-                System.out.println("ParTime Creators.Teacher");
+                System.out.println("PartTime Teacher");
                 System.out.println("Name: "+teacher.getName());
                 System.out.println("Salary: "+((PartTime_Teacher) teacher).getSalary());
                 System.out.println("--------------");
             }
 
             else if (teacher instanceof FullTime_Teacher){
-                System.out.println("FullTime Creators.Teacher");
+                System.out.println("FullTime Teacher");
                 System.out.println("Name: "+teacher.getName());
                 System.out.println("Salary: "+((FullTime_Teacher) teacher).getSalary());
                 System.out.println("--------------");
@@ -184,7 +184,7 @@ public class University {
 
             if(new_class.equals(classes.getName())){
                 classes.add_student(new_student);
-                System.out.println("Entities.Student created");
+                System.out.println("Student created");
                 break;
                 //take it to the menu, is possible use Menu.Menu function
             }
@@ -291,7 +291,7 @@ public class University {
                         }
                         else{
                             new_studentList.add(new_student);
-                            System.out.println("Entities.Student added");
+                            System.out.println("Student added");
                             student_condition = true;
                             break;
                         }
