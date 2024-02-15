@@ -1,3 +1,5 @@
+package Creators;
+
 public interface Teacher{
 
     final float salary_base = 25000;

@@ -1,3 +1,8 @@
+package Entities;
+
+import Creators.Person;
+import Creators.Teacher;
+
 public class PartTime_Teacher extends Person implements Teacher {
 
     private int hours_week;

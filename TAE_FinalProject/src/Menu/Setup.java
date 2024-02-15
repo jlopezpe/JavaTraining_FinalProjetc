@@ -1,3 +1,12 @@
+package Menu;
+
+import Creators.Teacher;
+import Entities.FullTime_Teacher;
+import Entities.PartTime_Teacher;
+import Entities.Student;
+import Entities.Class;
+import Menu.University;
+
 public class Setup {
 
     //Initialize minimum 2 different teachers of each type (full time, part time).

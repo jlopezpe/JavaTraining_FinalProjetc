@@ -1,3 +1,6 @@
+package Entities;
+
+import Creators.Person;
 
 public class Student extends Person {
 

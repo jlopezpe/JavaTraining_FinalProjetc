@@ -1,3 +1,5 @@
+package Menu;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -5,7 +7,7 @@ public class Menu {
 
     public static void Begin(){
         System.out.println("----------------------------------");
-        System.out.println("||Welcome to Globant University||");
+        System.out.println("||Welcome to Globant Menu.University||");
         System.out.println("----------------------------------");
         University university=new University();
         //Creating and adding entities to the new university

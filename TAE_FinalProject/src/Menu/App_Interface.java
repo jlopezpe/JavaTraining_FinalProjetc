@@ -1,3 +1,5 @@
+package Menu;
+
 import javafx.event.ActionEvent;
 
 import javax.swing.*;
@@ -10,7 +12,7 @@ public class App_Interface {
 
         public InterfazPrincipal() {
             // Configuración de la ventana principal
-            setTitle("Globant University");
+            setTitle("Globant Menu.University");
             setSize(1000, 500);
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             setLocationRelativeTo(null);

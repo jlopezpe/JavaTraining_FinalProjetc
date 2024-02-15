@@ -1,3 +1,11 @@
+package Menu;
+
+import Creators.Teacher;
+import Entities.FullTime_Teacher;
+import Entities.PartTime_Teacher;
+import Entities.Student;
+import Entities.Class;
+
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -47,14 +55,14 @@ public class University {
 
             if(teacher instanceof PartTime_Teacher){
 
-                System.out.println("ParTime Teacher");
+                System.out.println("ParTime Creators.Teacher");
                 System.out.println("Name: "+teacher.getName());
                 System.out.println("Salary: "+((PartTime_Teacher) teacher).getSalary());
                 System.out.println("--------------");
             }
 
             else if (teacher instanceof FullTime_Teacher){
-                System.out.println("FullTime Teacher");
+                System.out.println("FullTime Creators.Teacher");
                 System.out.println("Name: "+teacher.getName());
                 System.out.println("Salary: "+((FullTime_Teacher) teacher).getSalary());
                 System.out.println("--------------");
@@ -176,9 +184,9 @@ public class University {
 
             if(new_class.equals(classes.getName())){
                 classes.add_student(new_student);
-                System.out.println("Student created");
+                System.out.println("Entities.Student created");
                 break;
-                //take it to the menu, is possible use Menu function
+                //take it to the menu, is possible use Menu.Menu function
             }
             else{
                 if(this.getClasses().indexOf(classes)==this.getClasses().size()-1){
@@ -283,7 +291,7 @@ public class University {
                         }
                         else{
                             new_studentList.add(new_student);
-                            System.out.println("Student added");
+                            System.out.println("Entities.Student added");
                             student_condition = true;
                             break;
                         }

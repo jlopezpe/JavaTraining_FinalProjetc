@@ -1,3 +1,7 @@
+package Entities;
+
+import Creators.Person;
+import Creators.Teacher;
 
 import static java.lang.Math.round;
 

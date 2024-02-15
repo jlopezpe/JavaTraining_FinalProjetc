@@ -1,3 +1,7 @@
+*.docx
+*.xlsx
+*.pptx
+*.pdf
 ### IntelliJ IDEA ###
 out/
 !**/src/main/**/out/
