@@ -1,5 +1,3 @@
-import java.util.List;
-
 public class Setup {
 
     //Initialize minimum 2 different teachers of each type (full time, part time).
@@ -20,12 +18,12 @@ public class Setup {
 
         PartTime_Teacher part_time_teacher1= new PartTime_Teacher("juan gonzalez",4);
         part_time_teacher1.calculate_salary();
-        university.add_newEntity(part_time_teacher1);
+        university.add_newEntity((Teacher) part_time_teacher1);
 
 
         PartTime_Teacher part_time_teacher2= new PartTime_Teacher("maria lopez",8);
         part_time_teacher2.calculate_salary();
-        university.add_newEntity(part_time_teacher2);
+        university.add_newEntity((Teacher) part_time_teacher2);
 
 
         FullTime_Teacher full_time_teacher1= new FullTime_Teacher("daniela garcia",10);

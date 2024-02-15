@@ -37,7 +37,7 @@ public class PartTime_Teacher extends Person implements Teacher {
     }
     public float calculate_salary(int hours_week) {
 
-        this.setSalary(hours_week*salary_base);
+        this.setSalary(hours_week* salary_base);
         return salary;
 
     }

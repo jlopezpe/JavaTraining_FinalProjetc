@@ -1,3 +1,4 @@
+
 import static java.lang.Math.round;
 
 public class FullTime_Teacher extends Person implements Teacher {
@@ -39,7 +40,7 @@ public class FullTime_Teacher extends Person implements Teacher {
     //Overwriting method. first the salary is calculated, then it returns it.
     public float calculate_salary(int experience_years){
 
-        this.setSalary(round(experience_years*1.1*salary_base));
+        this.setSalary(Math.round(experience_years*1.1* Teacher.salary_base));
         return salary;
 
     }

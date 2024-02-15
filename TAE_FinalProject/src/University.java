@@ -129,18 +129,36 @@ public class University {
     //FUNCTIONALITY 3
     public void create_student(){
 
-        System.out.println("Please, give us the student information");
-        System.out.println("Please, write his name");
-        Scanner input=new Scanner(System.in);
-        String name_student=input.nextLine();
-        System.out.println("Please, write his age");
-        int age_student=input.nextInt();
-        int id=this.getStudents().size();
-        Student new_student=new Student(id,age_student,name_student);
-        this.add_newEntity(new_student);
-        //Use this other method for assign a class to the new student
-        this.add_studentTo_class(new_student);
+        boolean correct_name=false;
+        while(!correct_name){
+            System.out.println("Give us the student information");
+            System.out.println("Please, write his name");
+            Scanner input=new Scanner(System.in);
+            String name_student=input.nextLine();
 
+            if(name_student.matches("[a-zA-Z ]+")){
+                correct_name=true;
+                try {
+
+                    System.out.println("Please, write his age");
+                    int age_student = input.nextInt();
+                    int id = this.getStudents().size();
+                    Student new_student = new Student(id, age_student, name_student);
+                    this.add_newEntity(new_student);
+                    //Use this other method for assign a class to the new student
+                    this.add_studentTo_class(new_student);
+                }
+                catch (InputMismatchException e){
+                    System.out.println("Age incorrect, be sure to type correctly ");
+                    this.create_student();
+                }
+            }
+            else{
+                System.out.println("ERROR, write a correct name");
+
+            }
+
+        }
     }
 
     //method for assign a class to a new student
@@ -192,7 +210,7 @@ public class University {
                 }
             }
             if(!found){
-                System.out.println("Incorrect ID,try again");
+                System.out.println("NOT ID FOUND,try again");
                 this.search_Studentclass();
             }
         }
@@ -206,7 +224,7 @@ public class University {
     public void create_class(){
 
         //Create a new class and add an existing teacher, existing students and its relevant data
-        System.out.println("Please give the subjet of this class");
+        System.out.println("Please give the subject of this class");
         Scanner input=new Scanner(System.in);
         String class_name=input.nextLine();
         System.out.println("In which classroom it will be");
@@ -236,6 +254,7 @@ public class University {
         }
         if(!teacher_condition){
             System.out.println("Incorrect teacher, please try again");
+            this.create_class();
         }
     }
 
@@ -257,10 +276,17 @@ public class University {
                 for(Student new_student: this.getStudents()){
 
                     if(id_newStudent==new_student.getId()){
-                        new_studentList.add(new_student);
-                        System.out.println("Student added");
-                        student_condition=true;
-                        break;
+
+                        if(new_studentList.contains(new_student)){
+                            System.out.println("This student is already added");
+
+                        }
+                        else{
+                            new_studentList.add(new_student);
+                            System.out.println("Student added");
+                            student_condition = true;
+                            break;
+                        }
                     }
                 }
                 if (!student_condition){

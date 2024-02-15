@@ -13,14 +13,14 @@ public class Class {
 
     }
 
-    public Class(String name,String classroom,Teacher teacher){
+    public Class(String name, String classroom, Teacher teacher){
 
         this.name=name;
         this.classroom=classroom;
         this.teacher=teacher;
 
     }
-    public Class(String name,String classroom,Teacher teacher,List<Student> list_students){
+    public Class(String name, String classroom, Teacher teacher, List<Student> list_students){
 
         this.name=name;
         this.classroom=classroom;
